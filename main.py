@@ -3,19 +3,21 @@ import datetime as dt
 import smtplib
 from time import sleep
 import os
+from dotenv import load_dotenv
 
+
+load_dotenv("E:/Python/EnvironmentVariables/.env")
+YAHOO_SENDER = os.getenv("SMTP_YAHOO_SENDER")
+YAHOO_USERNAME = os.getenv("SMTP_YAHOO_USERNAME")
+YAHOO_EMAIL = os.getenv("SMTP_YAHOO_EMAIL")
+YAHOO_PASSWORD = os.getenv("SMTP_YAHOO_PASSWORD")
+YAHOO_TO_ADDR = os.getenv("SMTP_YAHOO_RECIPIENT")
 
 # Milton Keynes - Latitude: 52.040623, Longitude: -0.759417
 LOC = "Milton Keynes"
 LAT = 52.040623
 LNG = -0.759417
 LAT_LNG_TOL = 5
-
-YAHOO_SENDER = os.environ.get("SMTP_YAHOO_SENDER")
-YAHOO_USERNAME = os.environ.get("SMTP_YAHOO_USERNAME")
-YAHOO_EMAIL = os.environ.get("SMTP_YAHOO_EMAIL")
-YAHOO_PASSWORD = os.environ.get("SMTP_YAHOO_PASSWORD")
-YAHOO_TO_ADDR = os.environ.get("SMTP_YAHOO_TO_ADDR")
 
 
 def get_iss_data():
