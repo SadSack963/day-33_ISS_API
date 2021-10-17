@@ -61,6 +61,8 @@ def get_time():
     # https://sunrise-sunset.org/api
     # https://www.latlong.net/
 
+    # If security certificate has expired use:
+    # api_url = "http://api.sunrise-sunset.org/json"
     api_url = "https://api.sunrise-sunset.org/json"
 
     # url = api_url + f"?lat={lat}&lng={lng}"
@@ -70,6 +72,7 @@ def get_time():
     response = requests.get(url=api_url, params=parameters, timeout=1)
 
     response.raise_for_status()
+    print(response.text)
     try:
         data = response.json()
     except ValueError:
